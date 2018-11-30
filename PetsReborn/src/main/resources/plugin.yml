@@ -1,0 +1,36 @@
+name: BattlePetsReborn
+version: 1.0.0
+main: me.rokomilic.battlepetsreborn.BattlePetsReborn
+author: Darius0021, simbaorka101
+description: BattlePetsReborn
+depend: [Vault]
+softdepend: [WorldGuard, Towny]
+
+commands:
+  battlepets:
+    description: Main BattlePets commands.
+permissions:
+  battlepets.catch.*:
+    description: Gives ability to catch all mobs.
+    default: true
+  battlepets.spawn.*:
+    description: Gives ability to spawn all mobs.
+    default: true
+  battlepets.egg:
+    description: Gives ability get pets eggs by command.
+    default: op
+  battlepets.name:
+    description: Allows to rename pets.
+    default: true
+  battlepets.shop:
+    description: Allows to open shop with command.
+    default: true
+  battlepets.set.*:
+    description: Allows to set pet skillpoints, level, etc.
+    default: op
+  battlepets.reload:
+    description: Allows to reload plugin.
+    default: op
+  battlepets.removenear:
+    description: Allows to remove nearby entities.
+    default: op
