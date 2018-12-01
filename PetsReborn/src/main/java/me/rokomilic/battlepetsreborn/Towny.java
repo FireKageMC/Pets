@@ -1,6 +1,5 @@
 package me.rokomilic.battlepetsreborn;
 
-import com.palmergames.bukkit.towny.event.MobRemovalEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -18,11 +17,11 @@ public class Towny implements Listener {
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
-    @EventHandler
+    /*@EventHandler
     public void removing(MobRemovalEvent event) {
         if (allowpetsintowny && event.getEntity().hasMetadata("Owner"))
             event.setCancelled(true);
-    }
+    }*/
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void spawnilng(EntitySpawnEvent event) {

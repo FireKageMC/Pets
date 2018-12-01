@@ -744,7 +744,7 @@ public class BattlePetsReborn extends JavaPlugin implements Listener {
         }
         getLogger().info("Your server is running version " + version);
         switch (version) {
-            case "v1_12_2R1":
+            case "v1_12_R1":
                 spawning = new Spawning_v1_12_R1();
         }
 

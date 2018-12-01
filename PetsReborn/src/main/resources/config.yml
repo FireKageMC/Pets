@@ -53,7 +53,7 @@ WorldGuard:
   ExceptionRegions:
   - spawn
 MySQL:
-  Enabled: true
+  Enabled: false
   IP: localhost
   Port: 3306
   Username: root
