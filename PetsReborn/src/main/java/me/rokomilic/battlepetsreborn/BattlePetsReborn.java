@@ -557,7 +557,7 @@ public class BattlePetsReborn extends JavaPlugin implements Listener {
         playerevents = new PlayerEvents(this);
         armorevents = new ArmorStandEvent(this);
         catcher = new MobCatching(this);
-        //shop = new Shop(this);
+        shop = new Shop(this);
         lang = new Language(this);
         loadConfigs();
 
