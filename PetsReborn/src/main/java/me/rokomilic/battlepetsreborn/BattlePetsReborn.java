@@ -19,6 +19,7 @@ import me.rokomilic.battlepetsreborn.events.EntityEvents;
 import me.rokomilic.battlepetsreborn.events.InventoryEvents;
 import me.rokomilic.battlepetsreborn.events.PlayerEvents;
 import me.rokomilic.battlepetsreborn.versions.Spawning;
+import me.rokomilic.battlepetsreborn.versions.v1_12_2.EntityTypes;
 import me.rokomilic.battlepetsreborn.versions.v1_12_2.Spawning_v1_12_R1;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -540,6 +541,7 @@ public class BattlePetsReborn extends JavaPlugin implements Listener {
     public void onEnable() {
         plugin = this;
         loadConfig();
+        EntityTypes.registerEntities();
 
         setupVersion();
         if (spawning == null) {
@@ -555,7 +557,7 @@ public class BattlePetsReborn extends JavaPlugin implements Listener {
         playerevents = new PlayerEvents(this);
         armorevents = new ArmorStandEvent(this);
         catcher = new MobCatching(this);
-        shop = new Shop(this);
+        //shop = new Shop(this);
         lang = new Language(this);
         loadConfigs();
 

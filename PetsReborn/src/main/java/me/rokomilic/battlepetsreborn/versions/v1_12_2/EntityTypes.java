@@ -4,24 +4,74 @@ import me.rokomilic.battlepetsreborn.versions.Util;
 import net.minecraft.server.v1_12_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.entity.EntityType;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public enum EntityTypes {
-    BLOCKAS("Armor_Stand", 9999, ArmorStandPlus.class) {},
-    CUSTOM("Custom", 9999, CustomPet.class),
-    BAT("Bat", 65, BatPet.class) {},
-    WITHER("Wither", 64, WitherPet.class);
+    BLOCKAS("armor_stand", 30, EntityType.ARMOR_STAND, EntityArmorStand.class, ArmorStandPlus.class),
+    CUSTOM("endermite", 67, EntityType.ENDERMITE, EntityEndermite.class, CustomPet.class),
+    BAT("bat", 65, EntityType.BAT, EntityBat.class, BatPet.class),
+    WITHER("wither", 64, EntityType.WITHER, EntityWither.class, WitherPet.class);
+
+    private String name;
+    private int id;
+    private EntityType entityType;
+    private Class<? extends Entity> nmsClass;
+    private Class<? extends Entity> customClass;
+    private MinecraftKey key;
+    private MinecraftKey oldKey;
+
+    EntityTypes(String name, int id, EntityType entityType, Class<? extends Entity> nmsClass, Class<? extends Entity> customClass) {
+        this.name = name;
+        this.id = id;
+        this.entityType = entityType;
+        this.nmsClass = nmsClass;
+        this.customClass = customClass;
+        this.key = new MinecraftKey(name);
+        this.oldKey = net.minecraft.server.v1_12_R1.EntityTypes.b.b(nmsClass);
+    }
+
+    public static void registerEntities() {
+        for (EntityTypes ce : EntityTypes.values())
+            ce.register();
+    }
+
+    public static void unregisterEntities() {
+        for (EntityTypes ce : EntityTypes.values())
+            ce.unregister();
+    }
+
+    private void register() {
+        net.minecraft.server.v1_12_R1.EntityTypes.d.add(key);
+        net.minecraft.server.v1_12_R1.EntityTypes.b.a(id, key, customClass);
+    }
+
+    private void unregister() {
+        net.minecraft.server.v1_12_R1.EntityTypes.d.remove(key);
+        net.minecraft.server.v1_12_R1.EntityTypes.b.a(id, oldKey, nmsClass);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getID() {
+        return id;
+    }
+
+    public EntityType getEntityType() {
+        return entityType;
+    }
+
+    public Class<?> getCustomClass() {
+        return customClass;
+    }
 
     @SuppressWarnings("rawtypes")
     public static Map<String, Class> mobs = new HashMap<String, Class>();
-
-
-    private EntityTypes(String name, int id, Class<? extends Entity> custom) {
-        addToMaps(custom, name, id);
-    }
 
     public static void loadMobs() {
         mobs.put("block", ArmorStandPlus.class);
@@ -90,12 +140,4 @@ public enum EntityTypes {
         return entity;
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    private static void addToMaps(Class clazz, String name, int id) {
-        ((Map) Util.getPrivateField("c", net.minecraft.server.v1_12_R1.EntityTypes.class, null)).put(name, clazz);
-        ((Map) Util.getPrivateField("d", net.minecraft.server.v1_12_R1.EntityTypes.class, null)).put(clazz, name);
-        //((Map)getPrivateField("e", net.minecraft.server.v1_7_R4.EntityTypes.class, null)).put(Integer.valueOf(id), clazz);
-        ((Map) Util.getPrivateField("f", net.minecraft.server.v1_12_R1.EntityTypes.class, null)).put(clazz, Integer.valueOf(id));
-        //((Map)getPrivateField("g", net.minecraft.server.v1_7_R4.EntityTypes.class, null)).put(name, Integer.valueOf(id));
-    }
 }
