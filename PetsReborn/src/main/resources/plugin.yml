@@ -4,10 +4,10 @@ main: me.rokomilic.battlepetsreborn.BattlePetsReborn
 author: Darius0021, simbaorka101
 description: BattlePetsReborn
 depend: [Vault]
-softdepend: [WorldGuard, Towny]
+softdepend: [WorldGuard]
 
 commands:
-  battlepets:
+  pets:
     description: Main BattlePets commands.
 permissions:
   battlepets.catch.*:

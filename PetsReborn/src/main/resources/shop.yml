@@ -339,9 +339,9 @@ SecondaryMenus:
       '2':
         Material: MONSTER_EGG
         Data: 0
-        DisplayName: '&4Skeleton horse pet'
+        DisplayName: '&4Horse pet'
         Lore:
-        - '&4Buy Skeleton horse pet!'
+        - '&4Buy Horse pet!'
         - '&eCosts: 1000 gold'
         Index: 2
         Action: 'Egg:&7Skeleton horse:BLACK-NONE-SKELETON_HORSE-HORSE'

@@ -6,7 +6,6 @@ import me.rokomilic.battlepetsreborn.MobStats;
 import me.rokomilic.battlepetsreborn.versions.Spawning;
 import me.rokomilic.battlepetsreborn.versions.Util;
 import net.minecraft.server.v1_12_R1.*;
-
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
@@ -17,9 +16,7 @@ import org.bukkit.entity.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Horse.Color;
 import org.bukkit.entity.Horse.Style;
-import org.bukkit.entity.Horse.Variant;
 import org.bukkit.entity.Rabbit.Type;
-import org.bukkit.entity.Skeleton.SkeletonType;
 import org.bukkit.entity.Villager.Profession;
 import org.bukkit.event.entity.EntityTargetEvent.TargetReason;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -102,11 +99,11 @@ public class Spawning_v1_12_R1 implements Spawning {
                 if (type[0].equalsIgnoreCase("baby")) {
                     ((Horse) entity).setColor(Color.valueOf(type[1]));
                     ((Horse) entity).setStyle(Style.valueOf(type[2]));
-                    ((Horse) entity).setVariant(Variant.valueOf(type[3]));
+                    //((Horse) entity).setVariant(Variant.valueOf(type[3]));
                 } else {
                     ((Horse) entity).setColor(Color.valueOf(type[0]));
                     ((Horse) entity).setStyle(Style.valueOf(type[1]));
-                    ((Horse) entity).setVariant(Variant.valueOf(type[2]));
+                    //((Horse) entity).setVariant(Variant.valueOf(type[2]));
                 }
             } else if (entity instanceof Rabbit) {
                 if (type[0].equalsIgnoreCase("baby")) {
@@ -122,11 +119,11 @@ public class Spawning_v1_12_R1 implements Spawning {
                 }
             } else if (entity instanceof Skeleton) {
                 if (type[0].equalsIgnoreCase("wither")) {
-                    ((Skeleton) entity).setSkeletonType(SkeletonType.WITHER);
-                    ((Skeleton) entity).getEquipment().setItemInHand(new ItemStack(Material.STONE_SWORD));
+                    //((Skeleton) entity).setSkeletonType(SkeletonType.WITHER);
+                    //((Skeleton) entity).getEquipment().setItemInHand(new ItemStack(Material.STONE_SWORD));
                 } else {
-                    ((Skeleton) entity).setSkeletonType(SkeletonType.NORMAL);
-                    ((Skeleton) entity).getEquipment().setItemInHand(new ItemStack(Material.BOW));
+                    //((Skeleton) entity).setSkeletonType(SkeletonType.NORMAL);
+                    //((Skeleton) entity).getEquipment().setItemInHand(new ItemStack(Material.BOW));
                 }
             } else if (entity instanceof Villager) {
                 if (type[0].equalsIgnoreCase("baby")) {
@@ -139,14 +136,14 @@ public class Spawning_v1_12_R1 implements Spawning {
                     ((Zombie) entity).setBaby(true);
                 else
                     ((Zombie) entity).setBaby(false);
-                if (type.length > 1)
+                /*if (type.length > 1)
                     if (type[0].equalsIgnoreCase("villager") || type[1].equalsIgnoreCase("villager")) {
                         ((Zombie) entity).setVillager(true);
                     } else {
                         ((Zombie) entity).setVillager(false);
-                    }
+                    }*/
             } else if (entity instanceof PigZombie) {
-                ((PigZombie) entity).getEquipment().setItemInHand(new ItemStack(Material.GOLD_SWORD));
+                //((PigZombie) entity).getEquipment().setItemInHand(new ItemStack(Material.GOLD_SWORD));
             } else if (entity instanceof Slime) {
                 ((Slime) entity).setSize(Integer.parseInt(type[0]));
             }

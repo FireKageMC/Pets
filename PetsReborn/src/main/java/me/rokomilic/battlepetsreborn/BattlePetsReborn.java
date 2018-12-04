@@ -387,9 +387,9 @@ public class BattlePetsReborn extends JavaPlugin implements Listener {
         			en.setStyle(Style.valueOf(args[2].toUpperCase()));
         		}
         		if (args[3].equalsIgnoreCase("random") || full) {
-        			en.setVariant(Variant.values()[rand.nextInt(Variant.values().length)]);
+        			//en.setVariant(Variant.values()[rand.nextInt(Variant.values().length)]);
         		} else {
-        			en.setVariant(Variant.valueOf(args[3].toUpperCase()));
+        			//en.setVariant(Variant.valueOf(args[3].toUpperCase()));
         		}
         	} else {
         		if (args[0].equalsIgnoreCase("random") || full) {
@@ -403,14 +403,14 @@ public class BattlePetsReborn extends JavaPlugin implements Listener {
         			en.setStyle(Style.valueOf(args[1].toUpperCase()));
         		}
         		if (args[2].equalsIgnoreCase("random") || full) {
-        			en.setVariant(Variant.values()[rand.nextInt(Variant.values().length)]);
+        			//en.setVariant(Variant.values()[rand.nextInt(Variant.values().length)]);
         		} else {
-        			en.setVariant(Variant.valueOf(args[2].toUpperCase()));
+        			//en.setVariant(Variant.valueOf(args[2].toUpperCase()));
         		}
         	}
             full_type += ((Horse) entity).getColor().toString() + "-";
             full_type += ((Horse) entity).getStyle().toString() + "-";
-            full_type += ((Horse) entity).getVariant().toString() + "-";
+            //full_type += ((Horse) entity).getVariant().toString() + "-";
         }
         if (entity instanceof Rabbit)
         {
@@ -450,12 +450,12 @@ public class BattlePetsReborn extends JavaPlugin implements Listener {
         else if (entity instanceof Skeleton) {
         	if (full || args[0].equalsIgnoreCase("random")) {
         	if (rand.nextInt(2)==0) {
-        		((Skeleton) entity).setSkeletonType(SkeletonType.WITHER);
+        		//((Skeleton) entity).setSkeletonType(SkeletonType.WITHER);
         	}
         	} else if (args[0].equalsIgnoreCase("wither")) {
-        		((Skeleton) entity).setSkeletonType(SkeletonType.WITHER);
+        		//((Skeleton) entity).setSkeletonType(SkeletonType.WITHER);
         	}
-        	full_type += ((Skeleton) entity).getSkeletonType() == SkeletonType.NORMAL ? "" : "WITHER-";
+        	//full_type += ((Skeleton) entity).getSkeletonType() == SkeletonType.NORMAL ? "" : "WITHER-";
         }
         else if (entity instanceof Villager) {
         	Villager en = (Villager) entity;
@@ -486,26 +486,26 @@ public class BattlePetsReborn extends JavaPlugin implements Listener {
         	if (en.isBaby()) {
         		if (args[1].equalsIgnoreCase("random") || full) {
                 	if (rand.nextInt(2)==0) {
-                		en.setVillager(true);
+                		//en.setVillager(true);
                 		//en.setVillagerProfession(Profession.BLACKSMITH);
                 	}
         		} else if (args[1].equalsIgnoreCase("villager")) {
-        			en.setVillager(true);
+        			//en.setVillager(true);
         			//en.setVillagerProfession(Profession.BLACKSMITH);
             	}
         	} else {
         		if (args[0].equalsIgnoreCase("random") || full) {
                 	if (rand.nextInt(2)==0) {
-                		en.setVillager(true);
+                		//en.setVillager(true);
                 		//en.setVillagerProfession(Profession.BLACKSMITH);
                 	}
         		} else if (args[0].equalsIgnoreCase("villager")) {
-        			en.setVillager(true);
+        			//en.setVillager(true);
         			//en.setVillagerProfession(Profession.BLACKSMITH);
             	}
         	}
             full_type += ((Zombie) entity).isBaby() ? "Baby-" : "";
-            full_type += ((Zombie) entity).isVillager() ? "Villager-" : "";
+            //full_type += ((Zombie) entity).isVillager() ? "Villager-" : "";
         } else if (entity instanceof Slime) {
         	Slime en = (Slime) entity;
     		if (args[0].equalsIgnoreCase("random") || full) {

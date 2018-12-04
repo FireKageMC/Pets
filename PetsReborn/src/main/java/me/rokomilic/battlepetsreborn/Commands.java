@@ -19,7 +19,7 @@ public class Commands {
 
     public static boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-        if (!cmd.getName().equalsIgnoreCase("battlepets")) return true;
+        if (!cmd.getName().equalsIgnoreCase("pets")) return true;
 
         if (args.length == 0) {
             sender.sendMessage(Language.getMessage("commands"));

@@ -38,7 +38,6 @@ AllowedPets:
 - baby-zombie
 CommandAliases:
 - bp
-- pets
 AllWorldsAllowed: true
 AllowedWorlds:
 - world_nether
@@ -53,7 +52,7 @@ WorldGuard:
   ExceptionRegions:
   - spawn
 MySQL:
-  Enabled: false
+  Enabled: true
   IP: localhost
   Port: 3306
   Username: root
